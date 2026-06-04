@@ -188,16 +188,302 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
     100% {height:5px;transform:translateY(0px);background: #0bb3e4;}
 }
 
-.backtotop {
-    background-color: #00afe9;
-    z-index: 300;
-    width: 40px;
-    height: 40px;
-    line-height: 36px;
-    font-size: 18px;
-    text-align: center;
+/* OVERHAUL NAVBAR - MODERN, WHITE & CTA */
+#masthead.site-header {
+    background-color: #ffffff !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999 !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    height: 90px !important;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+#masthead .wrapper.main-menu {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 40px !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box !important;
+}
+
+.site-branding {
+    float: none !important;
+    padding: 0 !important;
+    min-height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0;
+}
+
+.site-logo {
+    margin-right: 15px !important;
+}
+
+.site-logo img {
+    max-height: 65px !important;
+    width: auto !important;
+    margin: 0 !important;
+    transition: transform 0.3s ease;
+}
+
+#site-identity {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.site-title {
+    font-size: 22px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.5px;
+    display: block !important;
+}
+
+.site-title a {
+    color: #222 !important;
+}
+
+.site-description {
+    font-size: 11px !important;
+    color: #888 !important;
+    margin-top: 2px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block !important;
+}
+
+.main-navigation {
+    float: none !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+}
+
+.main-navigation ul.nav-menu {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    flex-wrap: nowrap !important;
+    flex-direction: row !important;
+}
+
+.main-navigation ul.nav-menu > li {
+    padding: 0 !important;
+    margin: 0 5px !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.main-navigation ul.nav-menu > li > a {
+    color: #444 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    padding: 8px 3px !important;
+    position: relative;
+    transition: color 0.3s ease;
+    display: block !important;
+}
+
+.main-navigation ul.nav-menu > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ff6900;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.main-navigation ul.nav-menu > li > a:hover {
+    color: #ff6900 !important;
+}
+
+.main-navigation ul.nav-menu > li > a:hover::after {
+    width: 100%;
+}
+
+.main-navigation ul#primary-menu li.current-menu-item > a {
+    color: #ff6900 !important;
+}
+
+.main-navigation ul#primary-menu li.current-menu-item > a::after {
+    width: 100%;
+}
+
+/* WhatsApp CTA Button */
+.main-navigation ul.nav-menu > li:last-child {
+    margin-left: 15px !important;
+}
+
+.main-navigation ul.nav-menu > li:last-child > a {
+    background-color: #25d366 !important;
+    color: #fff !important;
+    padding: 10px 20px !important;
+    border-radius: 50px !important;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2) !important;
+    transition: all 0.3s ease !important;
+    text-transform: none !important;
+    font-size: 14px !important;
+}
+
+.main-navigation ul.nav-menu > li:last-child > a::after {
+    display: none !important;
+}
+
+.main-navigation ul.nav-menu > li:last-child > a:hover {
+    background-color: #128c7e !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3) !important;
+    color: #fff !important;
+}
+
+/* Fix for content being covered by fixed header */
+body {
+    padding-top: 90px !important;
+}
+
+/* Desktop spacing adjustments */
+@media screen and (max-width: 1250px) {
+    #masthead .wrapper.main-menu {
+        padding: 0 20px !important;
+    }
+    .main-navigation ul.nav-menu > li {
+        margin: 0 5px !important;
+    }
+    .site-title {
+        font-size: 18px !important;
+    }
+}
+
+/* Mobile Responsive Refinement */
+@media screen and (max-width: 1100px) {
+    .main-navigation ul.nav-menu > li > a {
+        font-size: 12px !important;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .site-description {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    #masthead.site-header {
+        height: 70px !important;
+    }
+    
+    body {
+        padding-top: 70px !important;
+    }
+
+    #masthead .wrapper.main-menu {
+        padding: 0 15px !important;
+    }
+
+    .site-title {
+        font-size: 16px !important;
+    }
+    
+    .site-logo img {
+        max-height: 50px !important;
+    }
+
+    .menu-toggle {
+        background: #f8f8f8 !important;
+        color: #333 !important;
+        padding: 8px 12px !important;
+        border-radius: 6px !important;
+        height: auto !important;
+        min-width: auto !important;
+        border: 1px solid #eee !important;
+    }
+
+    .menu-toggle svg {
+        fill: #333 !important;
+    }
+    
+    .menu-toggle .menu-label {
+        display: inline-block !important;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 12px;
+        padding: 0 0 0 8px !important;
+        color: #333 !important;
+    }
+
+    .main-navigation ul.nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column !important;
+        display: none !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        padding: 20px 0 !important;
+        border-top: 1px solid #eee;
+    }
+    
+    .main-navigation.menu-open ul.nav-menu,
+    .main-navigation.toggled-on ul.nav-menu {
+        display: flex !important;
+    }
+    
+    .main-navigation ul.nav-menu > li {
+        margin: 0 !important;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .main-navigation ul.nav-menu > li > a {
+        padding: 15px 20px !important;
+        display: block;
+        border-bottom: 1px solid #f9f9f9;
+    }
+
+    .main-navigation ul.nav-menu > li > a::after {
+        display: none !important;
+    }
+
+    .main-navigation ul.nav-menu > li:last-child {
+        margin: 20px auto 10px !important;
+        width: 80%;
+    }
+}
+
+.menu-overlay.active {
+    background-color: rgba(0,0,0,0.5) !important;
+    backdrop-filter: blur(4px);
     position: fixed;
-    bottom: -100px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998 !important;
+    display: block !important;
+}
+
+
     right: 25px;
     cursor: pointer;
     -webkit-transition: all .7s ease-in-out;
