@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TourCard from '../../components/TourCard.astro';
+
+const tourEntries = await getCollection('tours');
+---
+
+<BaseLayout title="Nuestros Tours">
+    <!-- Page Header -->
+    <section class="page-header-section" style="background-image: url('/imagenes/header-2.jpg');">
+        <div class="overlay"></div>
+        <div class="wrapper page-header-content">
+            <h1 class="page-header-title">Nuestros Tours</h1>
+            <ul class="breadcrumb">
+                <li><a href="/">Inicio</a></li>
+                <li>Tours</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Tours Grid -->
+    <section class="section">
+        <div class="wrapper">
+            <div class="section-header">
+                <span class="section-subtitle">Aventuras Inolvidables</span>
+                <h2 class="section-title">Elige tu próximo destino</h2>
+            </div>
+            
+            <div class="grid-3">
+                {tourEntries.map(entry => (
+                    <TourCard 
+                        title={entry.data.title}
+                        description={entry.data.short_description}
+                        image={entry.data.main_image}
+                        slug={entry.id}
+                    />
+                ))}
+            </div>
+        </div>
+    </section>
+</BaseLayout>

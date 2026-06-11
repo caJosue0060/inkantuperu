@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const pageEntries = await getCollection('pages');
+  return pageEntries.map(entry => ({
+    params: { slug: entry.id }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<BaseLayout title={entry.data.title}>
+    <!-- Page Header -->
+    <section class="page-header-section" style="background-image: url('/imagenes/header-3.jpg');">
+        <div class="overlay"></div>
+        <div class="wrapper page-header-content">
+            <h1 class="page-header-title">{entry.data.title}</h1>
+            <ul class="breadcrumb">
+                <li><a href="/">Inicio</a></li>
+                <li>{entry.data.title}</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="section">
+        <div class="wrapper">
+            <div class="page-content" style="background: var(--surface); padding: 40px; border-radius: 10px; box-shadow: var(--shadow-sm);">
+                <Content />
+            </div>
+        </div>
+    </section>
+</BaseLayout>

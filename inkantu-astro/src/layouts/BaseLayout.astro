@@ -1,0 +1,104 @@
+---
+import '../styles/inkantu-styles.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+    title: string;
+    description?: string;
+    image?: string;
+}
+
+const { title, description = "Tours en Cusco, Machu Picchu, Valle Sagrado y más.", image = "/imagenes/nuevo-logo.png" } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.inkantuperutravel.com');
+const defaultImage = new URL(image, Astro.site || 'https://www.inkantuperutravel.com');
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{title} - INKANTU PERU TRAVEL</title>
+    <meta name="description" content={description}>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href={canonicalURL}>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={canonicalURL}>
+    <meta property="og:title" content={`${title} - INKANTU PERU TRAVEL`}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={defaultImage}>
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content={canonicalURL}>
+    <meta property="twitter:title" content={`${title} - INKANTU PERU TRAVEL`}>
+    <meta property="twitter:description" content={description}>
+    <meta property="twitter:image" content={defaultImage}>
+    
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+</head>
+<body>
+
+    <Header />
+
+    <main>
+        <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Scripts -->
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    
+    <!-- GTranslate -->
+    <script is:inline>window.gtranslateSettings = {"default_language":"es","detect_browser_language":true,"languages":["es","en"],"wrapper_selector":".gtranslate_wrapper","alt_flags":{"en":"usa"}}</script>
+    <script is:inline src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+    <!-- Custom App Logic -->
+    <script is:inline>
+        $(document).ready(function(){
+            // Mobile Menu
+            $('#menu-toggle').click(function(){
+                $('#mobile-menu').addClass('active');
+                $('#menu-overlay').addClass('active');
+            });
+            
+            $('#close-menu, #menu-overlay').click(function(){
+                $('#mobile-menu').removeClass('active');
+                $('#menu-overlay').removeClass('active');
+            });
+
+            // Sticky Header
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 50) {
+                    $('.site-header').css('padding', '5px 0');
+                } else {
+                    $('.site-header').css('padding', '10px 0');
+                }
+            });
+
+            // Cookie Banner logic
+            if (!localStorage.getItem('cookieAccepted')) {
+                $('#cookie-banner').css('display', 'flex');
+            }
+        });
+
+        function acceptCookies() {
+            localStorage.setItem('cookieAccepted', 'true');
+            $('#cookie-banner').fadeOut();
+        }
+    </script>
+</body>
+</html>

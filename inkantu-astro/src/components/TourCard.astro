@@ -1,0 +1,20 @@
+---
+export interface Props {
+    title: string;
+    description: string;
+    image: string;
+    slug: string;
+}
+
+const { title, description, image, slug } = Astro.props;
+---
+<div class="tour-card">
+    <div class="tour-image">
+        <img src={image} alt={title} loading="lazy" decoding="async">
+    </div>
+    <div class="tour-content">
+        <h3 class="tour-title"><a href={`/tours/${slug}`}>{title}</a></h3>
+        <p class="tour-desc">{description}</p>
+        <a href={`/tours/${slug}`} class="btn btn-outline" style="color: var(--primary); border-color: var(--primary);">Ver Tour</a>
+    </div>
+</div>

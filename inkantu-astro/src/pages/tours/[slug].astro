@@ -1,0 +1,67 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const tourEntries = await getCollection('tours');
+  return tourEntries.map(entry => ({
+    params: { slug: entry.id }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": entry.data.title,
+  "description": entry.data.short_description,
+  "image": new URL(entry.data.main_image, 'https://www.inkantuperutravel.com').href,
+  "touristType": [
+    "Sightseeing"
+  ]
+});
+---
+<BaseLayout title={entry.data.title} description={entry.data.short_description} image={entry.data.main_image}>
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={schema} />
+
+    <!-- Page Header -->
+    <section class="page-header-section" style={`background-image: url('${entry.data.main_image}');`}>
+        <div class="overlay"></div>
+        <div class="wrapper page-header-content">
+            <h1 class="page-header-title">{entry.data.title}</h1>
+            <ul class="breadcrumb">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/tours">Tours</a></li>
+                <li>{entry.data.title}</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="section">
+        <div class="wrapper grid-tour">
+            <div class="tour-detail-content">
+                
+
+                <div class="tour-body-content">
+                    <Content />
+                </div>
+
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="tour-sidebar">
+                <div class="booking-widget">
+                    <h3 style="font-family: var(--font-heading); margin-bottom: 10px; color: var(--secondary);">Reserva tu viaje</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">Contáctanos para disponibilidad y precios.</p>
+                    <a href={`https://wa.me/51965477510?text=Hola,%20quisiera%20reservar%20el%20tour%20${entry.data.title}`} target="_blank" class="btn btn-primary" style="display: block; width: 100%;">
+                        <i class="fab fa-whatsapp"></i> Reservar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</BaseLayout>

@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Inicio">
+    <!-- Hero Slider -->
+    <section class="hero-slider-section">
+        <h1 class="sr-only">Paquetes Turísticos en Cusco - Inkantu Peru Travel</h1>
+        <div class="hero-slider" id="hero-slider">
+            
+            <div class="hero-slide" style="background-image: url('/imagenes/machu-picchu-2.JPG');">
+                <div class="overlay"></div>
+                <div class="hero-content">
+                    <h2 class="hero-title">Machu Picchu</h2>
+                    <p class="hero-subtitle">Paquetes turísticos en Cusco con todo lo que necesitas para una experiencia inolvidable.</p>
+                    <a href="/tours/machu-picchu" class="btn btn-primary">Descubre más</a>
+                </div>
+            </div>
+
+            <div class="hero-slide" style="background-image: url('/imagenes/7-colores2.jpg');">
+                <div class="overlay"></div>
+                <div class="hero-content">
+                    <h2 class="hero-title">Montaña de 7 Colores</h2>
+                    <p class="hero-subtitle">Una aventura única en los andes peruanos.</p>
+                    <a href="/tours/montana-7-colores" class="btn btn-primary">Descubre más</a>
+                </div>
+            </div>
+
+            <div class="hero-slide" style="background-image: url('/imagenes/huamantay.jpg');">
+                <div class="overlay"></div>
+                <div class="hero-content">
+                    <h2 class="hero-title">Laguna Humantay</h2>
+                    <p class="hero-subtitle">Naturaleza y misticismo a los pies del nevado Salkantay.</p>
+                    <a href="/tours/humantay" class="btn btn-primary">Descubre más</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section-bg">
+        <div class="wrapper grid-2">
+            <div>
+                <img src="/imagenes/machu-picchu-3.jpg" alt="Cusco Peru" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+            </div>
+            <div>
+                <span class="section-subtitle">Nuestra Esencia</span>
+                <h2 class="section-title">¿Por qué INKANTU PERU?</h2>
+                <p style="margin-bottom: 20px;"><strong>INKANTU</strong> es la fusión de <em>inka</em> y <em>kantuta</em>, representando la majestuosidad y autoridad inka con la delicadeza de nuestra flor nacional. En INKANTU PERÚ admiramos la sabiduría de nuestros ancestros y creemos en la energía vital del universo.</p>
+                <p style="margin-bottom: 30px;">Nuestra misión es que disfrutes de los atractivos arqueológicos y naturales sin preocuparte de la logística, conmemorando el vínculo con nuestra tierra.</p>
+                <a href="/mision-vision" class="btn btn-secondary">Leer Misión y Visión</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" style="background-color: var(--surface-alt);">
+        <div class="wrapper">
+            <div class="section-header">
+                <span class="section-subtitle">Servicios</span>
+                <h2 class="section-title">Nuestra Garantía</h2>
+            </div>
+            <div class="grid-3">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-tag"></i></div>
+                    <h3 class="feature-title">100% Asequible</h3>
+                    <p class="tour-desc">Te ofrecemos la mejor calidad al mejor precio para tus viajes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-mountain"></i></div>
+                    <h3 class="feature-title">Aventura</h3>
+                    <p class="tour-desc">Despierta tu espíritu aventurero explorando destinos emocionantes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-concierge-bell"></i></div>
+                    <h3 class="feature-title">Confort</h3>
+                    <p class="tour-desc">Nuestro servicio te ofrece una experiencia de primera clase en cada momento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="section section-bg">
+        <div class="wrapper">
+            <div class="section-header">
+                <span class="section-subtitle">Experiencias</span>
+                <h2 class="section-title">Vive la Magia de Cusco</h2>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/Zk9J5xnTVMA?autoplay=0&mute=0&controls=1&rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slider Initialization -->
+    <script is:inline>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.jQuery && $('#hero-slider').length && !$('#hero-slider').hasClass('slick-initialized')) {
+                $('#hero-slider').slick({
+                    dots: true,
+                    infinite: true,
+                    speed: 800,
+                    fade: true,
+                    cssEase: 'linear',
+                    autoplay: true,
+                    autoplaySpeed: 4000,
+                    arrows: true,
+                    prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+                    nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>'
+                });
+            }
+        });
+    </script>
+</BaseLayout>

@@ -1,0 +1,23 @@
+fragment ToursParts on Tours {
+  __typename
+  title
+  short_description
+  main_image
+  duration
+  altitude
+  level
+  price
+  itinerary {
+    __typename
+    day
+    title
+    description
+  }
+  body
+}
+
+fragment PagesParts on Pages {
+  __typename
+  title
+  body
+}
