@@ -126,6 +126,11 @@ img {
   margin: 0;
 }
 
+.site-title {
+  margin-bottom: 0;
+  line-height: 1.1;
+}
+
 .site-title a {
   font-family: var(--font-heading);
   font-size: 1.2rem;
@@ -140,7 +145,7 @@ img {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 3px;
-  margin-top: 3px;
+  margin-top: 1px;
 }
 
 .nav-menu {
