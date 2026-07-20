@@ -182,6 +182,88 @@ img {
   color: var(--primary);
 }
 
+/* Dropdown Menu Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--surface-alt);
+  padding: 10px 0;
+  min-width: 220px;
+  z-index: 100;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu li {
+  margin: 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 0.95rem !important;
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.dropdown-menu li a::after {
+  display: none !important; /* Hide hover underline inside dropdown */
+}
+
+.dropdown-menu li a:hover {
+  background-color: var(--surface-alt);
+  color: var(--primary) !important;
+  padding-left: 25px; /* Slight indent on hover */
+}
+
+.dropdown-toggle i {
+  font-size: 0.8rem;
+  margin-left: 5px;
+  transition: var(--transition);
+}
+
+.dropdown:hover .dropdown-toggle i {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 991px) {
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    display: none; /* Toggled by JS on mobile */
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 5px 0 0 15px;
+    min-width: auto;
+  }
+  
+  .dropdown-menu li a {
+    font-size: 1.05rem !important;
+    padding: 8px 10px;
+  }
+}
+
 .menu-toggle {
   display: none;
   background: none;
@@ -861,10 +943,26 @@ img {
   font-size: 0.95rem;
 }
 
+.footer-copy-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+}
+
+.footer-legal {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
 @media (max-width: 768px) {
   .footer-bottom {
     flex-direction: column;
     gap: 20px;
+    text-align: center;
+  }
+  .footer-copy-info {
+    text-align: center;
   }
 }
 
@@ -1040,4 +1138,71 @@ img {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Page Content Typography Styles (Terms, Privacy) */
+.page-content {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.page-content h2 {
+  font-family: var(--font-heading);
+  color: var(--secondary-dark);
+  font-size: 1.6rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 2px solid var(--surface-alt);
+  padding-bottom: 8px;
+  font-weight: 700;
+}
+
+.page-content h3 {
+  font-family: var(--font-heading);
+  color: var(--secondary);
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.page-content p {
+  margin-bottom: 1.25rem;
+  text-align: justify;
+}
+
+.page-content ul, .page-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.page-content li {
+  margin-bottom: 0.5rem;
+}
+
+.page-content strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.page-content hr {
+  border: none;
+  border-top: 2px dashed var(--surface-alt);
+  margin: 2.5rem 0;
+}
+
+.page-content blockquote {
+  border-left: 4px solid var(--primary);
+  background-color: var(--surface-alt);
+  padding: 15px 20px;
+  margin: 1.5rem 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.page-content blockquote p {
+  margin-bottom: 0;
 }

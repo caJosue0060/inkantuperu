@@ -89,6 +89,15 @@ const defaultImage = new URL(image, Astro.site || 'https://www.inkantuperutravel
                 }
             });
 
+            // Mobile Dropdown toggle
+            $('.dropdown-toggle').click(function(e) {
+                if ($(window).width() <= 991) {
+                    e.preventDefault();
+                    $(this).next('.dropdown-menu').slideToggle(300);
+                    $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+                }
+            });
+
             // Cookie Banner logic
             if (!localStorage.getItem('cookieAccepted')) {
                 $('#cookie-banner').css('display', 'flex');
