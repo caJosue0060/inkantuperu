@@ -15,8 +15,7 @@ INKANTU PERU TRAVEL se reserva el derecho de actualizar o modificar estos térmi
 ### Confirmación de Reserva
 Después de que un cliente realice una solicitud de reserva, su confirmación está sujeta a la verificación del pago según la solicitud. En ella se especificarán todos los servicios incluidos y excluidos. Si no se recibe una respuesta explícitamente u objeción por parte del cliente después de nuestra comunicación, se asumirá que se aceptan nuestros términos y condiciones. En consecuencia, INKANTU PERU TRAVEL no se responsabiliza de ningún malentendido o circunstancias imprevistas derivadas de ello.
 
-> [!NOTE]
-> Por favor, asegúrate de leer, comprender y estar de acuerdo con nuestros términos y condiciones antes de confirmar tu reserva con INKANTU PERU TRAVEL.
+> 💡 **Nota Importante:** Por favor, asegúrate de leer, comprender y estar de acuerdo con nuestros términos y condiciones antes de confirmar tu reserva con **INKANTU PERU TRAVEL**.
 
 ---
 
@@ -25,8 +24,7 @@ Después de que un cliente realice una solicitud de reserva, su confirmación es
 * **Reserva tu Viaje:** Puedes reservar un viaje con INKANTU PERU TRAVEL contactándonos al **+51 965 477 510**, o por correo electrónico a `contacto@inkantuperutravel.com`.
 * **Reservas a través de la página web:** Si reservas directamente a través de nuestro sitio web, asegúrate de proporcionar todos los detalles del pasaporte requeridos, incluido el nombre completo, número de pasaporte, fecha de nacimiento, nacionalidad y sexo. Una vez confirmado el pago, verificaremos la disponibilidad y aseguraremos los permisos necesarios.
 
-> [!IMPORTANT]
-> Tu viaje se considerará 100% confirmado solo después de recibir una confirmación por escrito de INKANTU PERU TRAVEL.
+> 🔒 **Confirmación Oficial:** Tu viaje se considerará 100% confirmado solo después de recibir una confirmación por escrito de **INKANTU PERU TRAVEL**.
 
 ---
 
@@ -47,8 +45,7 @@ Para los depósitos iniciales y los pagos finales, aceptamos efectivo, Tarjetas 
 ### 3.2. Pagos en Efectivo
 Los pagos en efectivo deben realizarse al menos 2 días antes del tour. Aceptamos tanto dólares estadounidenses como soles peruanos.
 
-> [!WARNING]
-> No se aceptarán billetes rotos o dañados, independientemente del tamaño del daño.
+> ⚠️ **Atención:** No se aceptarán billetes rotos o dañados, independientemente del tamaño del daño.
 
 ### 3.3. Comisiones Bancarias
 Todas las comisiones bancarias asociadas o tarifas de transacción serán responsabilidad del cliente.

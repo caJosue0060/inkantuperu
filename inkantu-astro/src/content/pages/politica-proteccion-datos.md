@@ -26,8 +26,7 @@ Utilizaremos sus datos personales exclusivamente para:
 2. Emitir comprobantes de pago correspondientes.
 3. Responder consultas, quejas o solicitudes relacionadas con el viaje.
 
-> [!IMPORTANT]
-> **Sin Fines Publicitarios:** No utilizaremos sus datos personales para fines de marketing, publicidad o envío de correos promocionales no solicitados.
+> 🔒 **Sin Fines Publicitarios:** No utilizaremos sus datos personales para fines de marketing, publicidad o envío de correos promocionales no solicitados.
 
 ---
 
